@@ -48,21 +48,22 @@ int main() {
       }
     }
     fin.close(); // закрываем файл
-
-    for (i = 0; i < n - 1; i++) //считаем Е
-      for (j = 0; j < m - 1; j++)
-        for (k = 0; k < h - 1; k++) {
-          E[i][j][k][1] = E[i][j][k][1] + c*dt*((B[i][j + 1][k][3] - B[i][j][k][3])/dy - (B[i][j][k + 1][2] - B[i][j][k][2])/dz);
-          E[i][j][k][2] = E[i][j][k][1] - c*dt*((B[i + 1][j][k][3] - B[i][j][k][3])/dx - (B[i][j][k + 1][1] - B[i][j][k][1])/dz);
-          E[i][j][k][3] = E[i][j][k][1] + c*dt*((B[i + 1][j][k][2] - B[i][j][k][2])/dx - (B[i][j + 1][k][1] - B[i][j][k][1])/dy);
-        }
-    for (i = 0; i < n - 1; i++) //считаем B
-      for (j = 0; j < m - 1; j++)
-        for (k = 0; k < h - 1; k++) {
-          B[i][j][k][1] = B[i][j][k][1] - c*dt*((E[i][j + 1][k][3] - E[i][j][k][3])/dy - (E[i][j][k + 1][2] - E[i][j][k][2])/dz);
-          B[i][j][k][2] = B[i][j][k][1] + c*dt*((E[i + 1][j][k][3] - E[i][j][k][3])/dx - (E[i][j][k + 1][1] - E[i][j][k][1])/dz);
-          B[i][j][k][3] = B[i][j][k][1] - c*dt*((E[i + 1][j][k][2] - E[i][j][k][2])/dx - (E[i][j + 1][k][1] - E[i][j][k][1])/dy);
-        }
+    for (int l = 0; l < t; l++) {
+      for (i = 0; i < n - 1; i++) //считаем Е
+        for (j = 0; j < m - 1; j++)
+          for (k = 0; k < h - 1; k++) {
+            E[i][j][k][1] = E[i][j][k][1] + c*dt*((B[i][j + 1][k][3] - B[i][j][k][3])/dy - (B[i][j][k + 1][2] - B[i][j][k][2])/dz);
+            E[i][j][k][2] = E[i][j][k][1] - c*dt*((B[i + 1][j][k][3] - B[i][j][k][3])/dx - (B[i][j][k + 1][1] - B[i][j][k][1])/dz);
+            E[i][j][k][3] = E[i][j][k][1] + c*dt*((B[i + 1][j][k][2] - B[i][j][k][2])/dx - (B[i][j + 1][k][1] - B[i][j][k][1])/dy);
+          }
+      for (i = 0; i < n - 1; i++) //считаем B
+        for (j = 0; j < m - 1; j++)
+          for (k = 0; k < h - 1; k++) {
+            B[i][j][k][1] = B[i][j][k][1] - c*dt*((E[i][j + 1][k][3] - E[i][j][k][3])/dy - (E[i][j][k + 1][2] - E[i][j][k][2])/dz);
+            B[i][j][k][2] = B[i][j][k][1] + c*dt*((E[i + 1][j][k][3] - E[i][j][k][3])/dx - (E[i][j][k + 1][1] - E[i][j][k][1])/dz);
+            B[i][j][k][3] = B[i][j][k][1] - c*dt*((E[i + 1][j][k][2] - E[i][j][k][2])/dx - (E[i][j + 1][k][1] - E[i][j][k][1])/dy);
+          }
+    }
   ofstream fout("output.txt"); 
   for (i = 0; i < n; i++) 
       for (j = 0; j < m; j++)
