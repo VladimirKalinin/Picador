@@ -1,0 +1,27 @@
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\bin\Debug\Drawing.exe.config
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\bin\Debug\Drawing.exe
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\bin\Debug\Drawing.pdb
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\obj\Debug\Drawing.csprojResolveAssemblyReference.cache
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\obj\Debug\Drawing.Form1.resources
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\obj\Debug\Drawing.Properties.Resources.resources
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\obj\Debug\Drawing.csproj.GenerateResource.Cache
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\obj\Debug\Drawing.exe
+c:\users\vovak\documents\visual studio 2017\Projects\Drawing\obj\Debug\Drawing.pdb
+C:\Users\vovak\Desktop\Пикадор\Drawing\bin\Debug\Drawing.exe.config
+C:\Users\vovak\Desktop\Пикадор\Drawing\bin\Debug\Drawing.exe
+C:\Users\vovak\Desktop\Пикадор\Drawing\bin\Debug\Drawing.pdb
+C:\Users\vovak\Desktop\Пикадор\Drawing\obj\Debug\Drawing.csprojResolveAssemblyReference.cache
+C:\Users\vovak\Desktop\Пикадор\Drawing\obj\Debug\Drawing.Form1.resources
+C:\Users\vovak\Desktop\Пикадор\Drawing\obj\Debug\Drawing.Properties.Resources.resources
+C:\Users\vovak\Desktop\Пикадор\Drawing\obj\Debug\Drawing.csproj.GenerateResource.Cache
+C:\Users\vovak\Desktop\Пикадор\Drawing\obj\Debug\Drawing.exe
+C:\Users\vovak\Desktop\Пикадор\Drawing\obj\Debug\Drawing.pdb
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\bin\Debug\Drawing.exe.config
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\bin\Debug\Drawing.exe
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\bin\Debug\Drawing.pdb
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Debug\Drawing.csprojResolveAssemblyReference.cache
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Debug\Drawing.Form1.resources
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Debug\Drawing.Properties.Resources.resources
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Debug\Drawing.csproj.GenerateResource.Cache
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Debug\Drawing.exe
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Debug\Drawing.pdb

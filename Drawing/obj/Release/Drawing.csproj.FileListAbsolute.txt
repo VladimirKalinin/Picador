@@ -1,0 +1,9 @@
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\bin\Release\Drawing.exe.config
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\bin\Release\Drawing.exe
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\bin\Release\Drawing.pdb
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Release\Drawing.Form1.resources
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Release\Drawing.Properties.Resources.resources
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Release\Drawing.csproj.GenerateResource.Cache
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Release\Drawing.exe
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Release\Drawing.pdb
+C:\Users\Vladimir\Desktop\Пикадор\Drawing\obj\Release\Drawing.csprojResolveAssemblyReference.cache
