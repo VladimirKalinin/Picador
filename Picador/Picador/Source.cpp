@@ -59,14 +59,14 @@ int main() {
   double Z_Min = -0.01;
   double Z_Max = 0.01;
 
-  t = 10000;
-  n = 512;
-  m = 128;
-  h = 128;
-  dx = 0.00015625;
-  dy = 0.00015625;
-  dz = 0.00015625;
-  dt = dy / (12.0);
+  t = 1000;
+  n = 128;
+  m = 32;
+  h = 32;
+  dx = (X_Max - X_Min) / n;
+  dy = (Y_Max - Y_Min) / m;
+  dz = (Z_Max - Z_Min) / h;
+  dt = dy / (4.0);
 
   //ifstream fin("input.txt");
   //  fin >> t;
@@ -157,6 +157,9 @@ int main() {
     {
       string str = "input"; str += to_string(l); str += ".txt";
       ofstream fout(str);
+      fout << n << endl;
+      fout << m << endl;
+      fout << h << endl;
       for (i = 0; i < n; i++)
         for (j = 0; j < m; j++)
         {

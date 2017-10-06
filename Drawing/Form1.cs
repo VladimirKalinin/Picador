@@ -20,20 +20,17 @@ namespace Drawing
         }
 
        
-        static int n = 512;
-        static int m = 128;
+        static int n, m, h;
 
-        Bitmap imageE = new Bitmap(512, 128);
-        Bitmap imageB = new Bitmap(512, 128);
+        Bitmap imageE, imageB;
+        double[,] masE;
+        double[,] masB;
 
 
         private void button1_Click(object sender, EventArgs e)
         {
 
 
-            double[,] masE = new double[n, m];
-            double[,] masB = new double[n, m];
-            string[] str = new string[n * m];
 
             Stream myStream = null;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -52,6 +49,14 @@ namespace Drawing
                         using (myStream)
                         {
                             StreamReader file = File.OpenText(@openFileDialog1.FileName);
+
+                            n = Int32.Parse(file.ReadLine());
+                            m = Int32.Parse(file.ReadLine());
+                            h = Int32.Parse(file.ReadLine());
+                            masE = new double[n, m];
+                            masB = new double[n, m];
+                            string[] str = new string[n * m];
+
                             for (int i = 0; i < n; i++)
                                 for (int j = 0; j < m; j++)
                                 {
@@ -66,6 +71,9 @@ namespace Drawing
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
             }
+
+            imageB = new Bitmap(n, m);
+            imageE = new Bitmap(n, m);
 
 
             //StreamReader file = File.OpenText(@"input.txt");
@@ -97,8 +105,8 @@ namespace Drawing
                         min = masE[i, j];
                 }
 
-            for (int i = 0; i < 512; i++)
-                for (int j = 0; j < 128; j++)
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < m; j++)
                 {
                     int col = (int)((masE[i, j] - min) / (max - min) * 255);
                    imageE.SetPixel(i, j, Color.FromArgb(col, col, col));
@@ -119,8 +127,8 @@ namespace Drawing
                         min = masB[i, j];
                 }
 
-            for (int i = 0; i < 512; i++)
-                for (int j = 0; j < 128; j++)
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < m; j++)
                 {
                     int col = (int)((masB[i, j] - min) / (max - min) * 255);
                     imageB.SetPixel(i, j, Color.FromArgb(col, col, col));
