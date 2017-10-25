@@ -85,12 +85,16 @@ public:
     myComplex tmp(val[0] * a, val[1] * a);
     return tmp;
   }
+  myComplex operator/(double a)
+  {
+    myComplex tmp(val[0] / a, val[1] / a);
+    return tmp;
+  }
 
 };
 
 
 int main() {
-
   int n, m, h, i, j, k, t;
   double  dt, dx, dy, dz, c = 299792458.0;
   double x, y, z;
@@ -140,16 +144,18 @@ int main() {
         y = Y_Min + j*dy;
         z = Z_Min + k*dz;
         Ex[k + h*(j + m*i)].set(0, 0);
-        Ey[k + h*(j + m*i)].set(((((exp(((((-((y * y) + (z * z))) * 2) * 0.69314718055994529) / 0.000025000000000000001)))) *
-          (((exp((((-((((2 * x) / (-0.030000000000000002))) * (((2 * x) / (-0.030000000000000002))))) * 2) * 0.69314718055994529)) *
-          (((0.5 * (1 + sign(((-x) - (-0.030000000000000002))))))))))) * cos((2617.9938779914942 * x))), 0);
+        Ey[k + h*(j + m*i)].set(sin(4 * M_PI*(x - X_Min) / (X_Max - X_Min)), 0);
+        //(((((exp(((((-((y * y) + (z * z))) * 2) * 0.69314718055994529) / 0.000025000000000000001)))) *
+        //  (((exp((((-((((2 * x) / (-0.030000000000000002))) * (((2 * x) / (-0.030000000000000002))))) * 2) * 0.69314718055994529)) *
+        //  (((0.5 * (1 + sign(((-x) - (-0.030000000000000002))))))))))) * cos((2617.9938779914942 * x))), 0);
         Ez[k + h*(j + m*i)].set(0, 0);
 
         Bx[k + h*(j + m*i)].set(0, 0);
         By[k + h*(j + m*i)].set(0, 0);
-        Bz[k + h*(j + m*i)].set(((((exp(((((-((y * y) + (z * z))) * 2) * 0.69314718055994529) / 0.000025000000000000001)))) *
-          (((exp((((-((((2 * x) / (-0.030000000000000002))) * (((2 * x) / (-0.030000000000000002))))) * 2) * 0.69314718055994529)) *
-          (((0.5 * (1 + sign(((-x) - (-0.030000000000000002))))))))))) * cos((2617.9938779914942 * x))), 0);
+        Bz[k + h*(j + m*i)].set(sin(4 * M_PI*(x - X_Min) / (X_Max - X_Min)), 0);
+        //(((((exp(((((-((y * y) + (z * z))) * 2) * 0.69314718055994529) / 0.000025000000000000001)))) *
+        //  (((exp((((-((((2 * x) / (-0.030000000000000002))) * (((2 * x) / (-0.030000000000000002))))) * 2) * 0.69314718055994529)) *
+        //  (((0.5 * (1 + sign(((-x) - (-0.030000000000000002))))))))))) * cos((2617.9938779914942 * x))), 0);
       }
     }
   }
@@ -260,7 +266,7 @@ int main() {
           Bz_c[k + h*(j + m*i)] = Bz_c[k + h*(j + m*i)] - myI*(Ey_c[k + h*(j + m*i)] * wx[i] - Ex_c[k + h*(j + m*i)] * wy[j]);
         }
 
-    if (l % 64 == 0)
+    if (l % 20 == 0)
     {
       string str = "PSTDout"; str += to_string(l); str += ".txt";
       ofstream fout(str);
@@ -270,25 +276,25 @@ int main() {
       fftw_execute(pBx);
       fftw_execute(pBy);
       fftw_execute(pBz);
-      //double size = n*m*h;
-      //for (i = 0; i < n; i++) //приводим
-      //  for (j = 0; j < m; j++)
-      //    for (k = 0; k < h; k++)
-      //    {
-      //      Ex[i + j*n + k*n*m] = Ex[i + j*n + k*n*m] / size;
-      //      Ey[i + j*n + k*n*m] = Ey[i + j*n + k*n*m] / size;
-      //      Ey[i + j*n + k*n*m] = Ey[i + j*n + k*n*m] / size;
-      //      Bx[i + j*n + k*n*m] = Bx[i + j*n + k*n*m] / size;
-      //      By[i + j*n + k*n*m] = By[i + j*n + k*n*m] / size;
-      //      By[i + j*n + k*n*m] = By[i + j*n + k*n*m] / size;
-      //    }
+      double size = n*m*h;
+      for (i = 0; i < n; i++) //приводим
+        for (j = 0; j < m; j++)
+          for (k = 0; k < h; k++)
+          {
+            Ex[k + h*(j + m*i)] = Ex[k + h*(j + m*i)] / size;
+            Ey[k + h*(j + m*i)] = Ey[k + h*(j + m*i)] / size;
+            Ez[k + h*(j + m*i)] = Ez[k + h*(j + m*i)] / size;
+            Bx[k + h*(j + m*i)] = Bx[k + h*(j + m*i)] / size;
+            By[k + h*(j + m*i)] = By[k + h*(j + m*i)] / size;
+            Bz[k + h*(j + m*i)] = Bz[k + h*(j + m*i)] / size;
+          }
       fout << n << endl;
       fout << m << endl;
       fout << h << endl;
       for (i = 0; i < n; i++)
         for (j = 0; j < m; j++)
         {
-          fout << Ey[k + h*(j + m*i)].getRe() << "\n" << Bz[k + h*(j + m*i)].getRe() << "\n";
+          fout << Ey[h/2 + h*(j + m*i)].getRe() << "\n" << Bz[h/2 + h*(j + m*i)].getRe() << "\n";
         }
       fout.close();
     }
